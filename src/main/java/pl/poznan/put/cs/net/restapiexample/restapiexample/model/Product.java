@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -21,6 +22,9 @@ public class Product {
 	private String name;
 	
 	private String description;
+	
+	@ManyToOne
+	private User user;
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	private Set<Opinion> opinions;
@@ -55,5 +59,13 @@ public class Product {
 	
 	public void setOpinions(Set<Opinion> opinions) {
 		this.opinions = opinions;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+	
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

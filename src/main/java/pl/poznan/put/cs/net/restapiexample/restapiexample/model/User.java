@@ -4,15 +4,20 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class User {
 	
 	@Id
+	@GeneratedValue(generator="system-uuid")
+	@GenericGenerator(name="system-uuid", strategy = "uuid")
+	private String id;
 	private String login;
-	private String email;
 	private String name;
 	private String surname;
 	
@@ -28,14 +33,6 @@ public class User {
 	
 	public void setLogin(String login) {
 		this.login = login;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	
 	public String getName() {
@@ -68,5 +65,13 @@ public class User {
 	
 	public void setOpinions(Set<Opinion> opinions) {
 		this.opinions = opinions;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
 	}
 }

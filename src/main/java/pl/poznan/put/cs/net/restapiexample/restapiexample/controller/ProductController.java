@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -38,6 +40,7 @@ public class ProductController {
 	
 	private final ProductService productService;
 	private final ProductModelAssembler productModelAssembler;
+	private final Logger logger = LoggerFactory.getLogger(ProductController.class);
 	
 	@Autowired
 	public ProductController(ProductService productService, ProductModelAssembler productModelAssembler) {
@@ -82,6 +85,7 @@ public class ProductController {
 		try {
 			productService.applyPatchAndUpdate(currentProduct, patch);
 		} catch (JsonProcessingException e) {
+			logger.error(e.getMessage(), e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		} catch (JsonPatchException e) {
 			return ResponseEntity.unprocessableEntity().build();
