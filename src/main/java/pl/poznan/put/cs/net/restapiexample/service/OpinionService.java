@@ -25,15 +25,13 @@ public class OpinionService {
 	
 	private final OpinionRepository opinionRepository;
 	private final UserService userService;
-	private final ProductService productService;
 	private final ObjectMapper objectMapper = new ObjectMapper();
 	
 	@Autowired
 	public OpinionService(OpinionRepository opinionRepository, 
-			UserService userService, ProductService productService) {
+			UserService userService) {
 		this.opinionRepository = opinionRepository;
 		this.userService = userService;
-		this.productService = productService;
 	}
 	
 	public Optional<Opinion> findById(String id) {

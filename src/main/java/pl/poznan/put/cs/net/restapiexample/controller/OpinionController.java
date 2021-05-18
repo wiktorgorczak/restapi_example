@@ -69,7 +69,8 @@ public class OpinionController {
 	}
 	
 	@GetMapping("/{opinionId}")
-	public EntityModel<Opinion> getOpinion(@PathVariable String productId, @PathVariable String opinionId) {
+	public EntityModel<Opinion> getOpinion(@PathVariable String productId, 
+			@PathVariable String opinionId) {
 		Product product = productService.findById(productId)
 				.orElseThrow(NotFoundException::new);
 		
@@ -93,7 +94,8 @@ public class OpinionController {
 	}
 	
 	@DeleteMapping("/{opinionId}")
-	public ResponseEntity<?> deleteOpinion(@PathVariable String productId, @PathVariable String opinionId) {
+	public ResponseEntity<?> deleteOpinion(@PathVariable String productId, 
+			@PathVariable String opinionId) {
 		Product product = productService.findById(productId)
 				.orElseThrow(NotFoundException::new);
 		
@@ -106,7 +108,8 @@ public class OpinionController {
 	}
 	
 	@PutMapping("/{opinionId}")
-	public ResponseEntity<?> replaceOpinion(@RequestBody Opinion opinion, @PathVariable String productId, @PathVariable String opinionId) {
+	public ResponseEntity<?> replaceOpinion(@RequestBody Opinion opinion, 
+			@PathVariable String productId, @PathVariable String opinionId) {
 		Product product = productService.findById(productId)
 				.orElseThrow(NotFoundException::new);
 		
@@ -122,7 +125,8 @@ public class OpinionController {
 	}
 	
 	@PatchMapping("/{opinionId}")
-	public ResponseEntity<?> updateOpinion(@PathVariable String productId, @PathVariable String opinionId, @RequestBody JsonPatch patch) {
+	public ResponseEntity<?> updateOpinion(@PathVariable String productId, 
+			@PathVariable String opinionId, @RequestBody JsonPatch patch) {
 		Product product = productService.findById(productId)
 				.orElseThrow(NotFoundException::new);
 		Opinion opinion = opinionService.findByProductAndId(product, opinionId)

@@ -11,7 +11,7 @@ import pl.poznan.put.cs.net.restapiexample.controller.UserController;
 import pl.poznan.put.cs.net.restapiexample.model.User;
 
 @Component
-public class UserModelAssembler implements RepresentationModelAssembler<User, EntityModel<User>>{
+public class UserModelAssembler implements RepresentationModelAssembler<User, EntityModel<User>> {
 
 	@Override
 	public EntityModel<User> toModel(User entity) {

@@ -59,7 +59,8 @@ public class ProductService {
 	}
 	
 	@Transactional(readOnly = false)
-	public void applyPatchAndUpdate(Product product, JsonPatch patch) throws JsonPatchException, JsonProcessingException {
+	public void applyPatchAndUpdate(Product product, JsonPatch patch) 
+			throws JsonPatchException, JsonProcessingException {
 		JsonNode patchedJson = patch.apply(objectMapper.convertValue(product, JsonNode.class));
 		Product patched = objectMapper.treeToValue(patchedJson, Product.class);
 		
