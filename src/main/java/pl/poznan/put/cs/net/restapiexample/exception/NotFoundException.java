@@ -1,4 +1,4 @@
-package pl.poznan.put.cs.net.restapiexample.restapiexample.exception;
+package pl.poznan.put.cs.net.restapiexample.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

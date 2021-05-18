@@ -1,4 +1,4 @@
-package pl.poznan.put.cs.net.restapiexample.restapiexample.service;
+package pl.poznan.put.cs.net.restapiexample.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +12,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
 
-import pl.poznan.put.cs.net.restapiexample.restapiexample.model.User;
-import pl.poznan.put.cs.net.restapiexample.restapiexample.repository.UserRepository;
+import pl.poznan.put.cs.net.restapiexample.model.User;
+import pl.poznan.put.cs.net.restapiexample.repository.UserRepository;
 
 @Service
 public class UserService {

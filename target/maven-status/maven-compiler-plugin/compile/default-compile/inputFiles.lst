@@ -1,0 +1,16 @@
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/model/Opinion.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/hateoas/UserModelAssembler.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/repository/UserRepository.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/controller/ProductController.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/service/ProductService.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/service/OpinionService.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/model/User.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/hateoas/ProductModelAssembler.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/exception/NotFoundException.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/controller/UserController.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/repository/OpinionRepository.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/model/Product.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/service/UserService.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/security/SecurityConfig.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/repository/ProductRepository.java
+/home/wiktor/kucbuda/put.net/restapi_example/src/main/java/pl/poznan/put/cs/net/restapiexample/RestapiExampleApplication.java

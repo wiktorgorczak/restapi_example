@@ -1,4 +1,4 @@
-package pl.poznan.put.cs.net.restapiexample.restapiexample.controller;
+package pl.poznan.put.cs.net.restapiexample.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,10 +26,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
 
-import pl.poznan.put.cs.net.restapiexample.restapiexample.exception.NotFoundException;
-import pl.poznan.put.cs.net.restapiexample.restapiexample.hateoas.UserModelAssembler;
-import pl.poznan.put.cs.net.restapiexample.restapiexample.model.User;
-import pl.poznan.put.cs.net.restapiexample.restapiexample.service.UserService;
+import pl.poznan.put.cs.net.restapiexample.exception.NotFoundException;
+import pl.poznan.put.cs.net.restapiexample.hateoas.UserModelAssembler;
+import pl.poznan.put.cs.net.restapiexample.model.User;
+import pl.poznan.put.cs.net.restapiexample.service.UserService;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -76,7 +76,7 @@ public class UserController {
 				.body(model);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteUser(@PathVariable String id) {
 		User user = userService.findById(id)
 				.orElseThrow(NotFoundException::new);

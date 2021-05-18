@@ -1,4 +1,4 @@
-package pl.poznan.put.cs.net.restapiexample.restapiexample.controller;
+package pl.poznan.put.cs.net.restapiexample.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -29,10 +29,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
 
-import pl.poznan.put.cs.net.restapiexample.restapiexample.exception.NotFoundException;
-import pl.poznan.put.cs.net.restapiexample.restapiexample.hateoas.ProductModelAssembler;
-import pl.poznan.put.cs.net.restapiexample.restapiexample.model.Product;
-import pl.poznan.put.cs.net.restapiexample.restapiexample.service.ProductService;
+import pl.poznan.put.cs.net.restapiexample.exception.NotFoundException;
+import pl.poznan.put.cs.net.restapiexample.hateoas.ProductModelAssembler;
+import pl.poznan.put.cs.net.restapiexample.model.Product;
+import pl.poznan.put.cs.net.restapiexample.service.ProductService;
 
 @RestController
 @RequestMapping("/api/v1/products")

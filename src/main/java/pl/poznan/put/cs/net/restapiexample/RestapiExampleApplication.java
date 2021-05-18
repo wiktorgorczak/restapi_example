@@ -1,4 +1,4 @@
-package pl.poznan.put.cs.net.restapiexample.restapiexample;
+package pl.poznan.put.cs.net.restapiexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

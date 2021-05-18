@@ -1,4 +1,4 @@
-package pl.poznan.put.cs.net.restapiexample.restapiexample.service;
+package pl.poznan.put.cs.net.restapiexample.service;
 
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package pl.poznan.put.cs.net.restapiexample.restapiexample.model;
+package pl.poznan.put.cs.net.restapiexample.model;
 
 import java.util.Set;
 
@@ -11,7 +11,12 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Product {
 	
 	@Id
@@ -24,6 +29,7 @@ public class Product {
 	private String description;
 	
 	@ManyToOne
+	@JsonIdentityReference(alwaysAsId = true)
 	private User user;
 	
 	@OneToMany(cascade=CascadeType.ALL)
