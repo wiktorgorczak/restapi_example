@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -16,6 +17,7 @@ import pl.poznan.put.cs.net.restapiexample.model.User;
 import pl.poznan.put.cs.net.restapiexample.repository.UserRepository;
 
 @Service
+@Transactional(readOnly = true)
 public class UserService {
 
 	private final UserRepository userRepository;
@@ -34,18 +36,22 @@ public class UserService {
 		return userRepository.findById(id);
 	}
 	
+	@Transactional(readOnly = false)
 	public User create(User user) {
 		return userRepository.save(user);
 	}
 	
+	@Transactional(readOnly = false)
 	public void delete(User user) {
 		userRepository.delete(user);
 	}
 	
+	@Transactional(readOnly = false)
 	public void replace(User user, User newUser) {
 		userRepository.save(newUser);
 	}
 	
+	@Transactional(readOnly = false)
 	public void applyPatchAndUpdate(User currentUser, JsonPatch patch) throws JsonPatchException, JsonProcessingException {
 		JsonNode patchedJson = patch.apply(objectMapper.convertValue(currentUser, JsonNode.class));
 		User patched = objectMapper.treeToValue(patchedJson, User.class);

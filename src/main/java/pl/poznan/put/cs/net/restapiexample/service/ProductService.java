@@ -63,11 +63,12 @@ public class ProductService {
 		JsonNode patchedJson = patch.apply(objectMapper.convertValue(product, JsonNode.class));
 		Product patched = objectMapper.treeToValue(patchedJson, Product.class);
 		
-		productRepository.save(patched);
+		replace(product, patched);
 	}
 	
 	@Transactional(readOnly = false)
 	public void replace(Product currentProduct, Product newProduct) {
-		productRepository.save(newProduct);
+		delete(currentProduct);
+		create(newProduct);
 	}
 }
