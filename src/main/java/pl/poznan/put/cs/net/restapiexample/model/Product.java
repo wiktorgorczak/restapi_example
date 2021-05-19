@@ -1,18 +1,12 @@
 package pl.poznan.put.cs.net.restapiexample.model;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
@@ -27,13 +21,6 @@ public class Product {
 	private String name;
 	
 	private String description;
-	
-	@ManyToOne
-	@JsonIdentityReference(alwaysAsId = true)
-	private User user;
-	
-	@OneToMany(cascade=CascadeType.ALL)
-	private Set<Opinion> opinions;
 	
 	public String getId() {
 		return id;
@@ -57,21 +44,5 @@ public class Product {
 	
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	
-	public Set<Opinion> getOpinions() {
-		return opinions;
-	}
-	
-	public void setOpinions(Set<Opinion> opinions) {
-		this.opinions = opinions;
-	}
-	
-	public User getUser() {
-		return user;
-	}
-	
-	public void setUser(User user) {
-		this.user = user;
 	}
 }

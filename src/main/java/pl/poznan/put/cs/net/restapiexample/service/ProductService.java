@@ -13,9 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
 
-import pl.poznan.put.cs.net.restapiexample.exception.NotFoundException;
 import pl.poznan.put.cs.net.restapiexample.model.Product;
-import pl.poznan.put.cs.net.restapiexample.model.User;
 import pl.poznan.put.cs.net.restapiexample.repository.ProductRepository;
 
 @Service
@@ -23,13 +21,11 @@ import pl.poznan.put.cs.net.restapiexample.repository.ProductRepository;
 public class ProductService {
 
 	private final ProductRepository productRepository;
-	private final UserService userService;
 	private final ObjectMapper objectMapper = new ObjectMapper();
 	
 	@Autowired
-	public ProductService(ProductRepository productRepository, UserService userService) {
+	public ProductService(ProductRepository productRepository) {
 		this.productRepository = productRepository;
-		this.userService = userService;
 	}
 
 	public List<Product> findAll() {
@@ -42,19 +38,11 @@ public class ProductService {
 	
 	@Transactional(readOnly = false)
 	public void delete(Product product) {
-		User user = product.getUser();
-		user.getProducts().remove(product);
-		
 		productRepository.delete(product);
 	}
 	
 	@Transactional(readOnly = false)
 	public Product create(Product product) {
-		User user = userService.findById(
-				product.getUser().getId()).orElseThrow(NotFoundException::new);
-		
-		product.setUser(user);
-		
 		return productRepository.save(product);
 	}
 	
@@ -64,12 +52,11 @@ public class ProductService {
 		JsonNode patchedJson = patch.apply(objectMapper.convertValue(product, JsonNode.class));
 		Product patched = objectMapper.treeToValue(patchedJson, Product.class);
 		
-		replace(product, patched);
+		productRepository.save(patched);
 	}
 	
 	@Transactional(readOnly = false)
 	public void replace(Product currentProduct, Product newProduct) {
-		delete(currentProduct);
-		create(newProduct);
+		productRepository.save(newProduct); 
 	}
 }
